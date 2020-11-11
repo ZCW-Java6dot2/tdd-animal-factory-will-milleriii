@@ -5,6 +5,8 @@ import org.junit.Test;
 import rocks.zipcodewilmington.animals.Cat;
 import rocks.zipcodewilmington.animals.animal_storage.CatHouse;
 
+import java.util.Date;
+
 /**
  * @author leon on 4/19/18.
  */
@@ -13,15 +15,17 @@ public class CatHouseTest {
     @Test
     public void addTest() {
         // given
-        Cat expected = new Cat();
-        Integer id = expected.getId();
+        String expectedName = "Zula";
+        Date expectedDate = new Date();
+        Integer expectedId = 0;
 
         // when
-        CatHouse.add(expected);
-        Cat actual = CatHouse.getCatById(id);
+        Cat cat = new Cat(expectedName, expectedDate, expectedId);
+        CatHouse.add(expectedName);
+        Cat actual = CatHouse.getCatById(expectedId);
 
         // then
-        Assert.assertEquals(expected, actual);
+        Assert.assertEquals(expectedId, actual);
     }
 
     // TODO - Create tests for `void remove(Integer id)`
